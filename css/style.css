@@ -37,6 +37,16 @@ body {
   cursor: pointer;
 }
 
+#cart-empty {
+  display: block;
+  text-align: center;
+  font-size: 30px;
+}
+
+.cart-total-container, .cart-buttons-container {
+  display: none;
+}
+
 .cart-info {
   border: 0.1rem solid var(--mainBlack);
   color: var(--mainBlack);

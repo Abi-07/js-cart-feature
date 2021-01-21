@@ -69,15 +69,16 @@ https://www.iconfinder.com/korawan_m
 
         </div>
         <div id="cart" class="cart">
+          <p id="cart-empty">Nothing in cart</p>
           <!-- cart total -->
-          <div class="cart-total-container d-flex justify-content-around text-capitalize mt-5">
+          <div class="cart-total-container justify-content-around text-capitalize mt-5">
             <h5>total</h5>
             <h5> $ <strong id="cart-total" class="font-weight-bold">0.00</strong> </h5>
           </div>
           <!--end cart total -->
           <!-- cart buttons -->
-          <div class="cart-buttons-container mt-3 d-flex justify-content-between">
-            <a href="#" id="clear-cart" class="btn btn-outline-secondary btn-black text-uppercase">clear cart</a>
+          <div class="cart-buttons-container mt-3 justify-content-between">
+            <a id="clear-cart" class="btn btn-outline-secondary btn-black text-uppercase" onclick="clearCart()">clear cart</a>
             <a href="#" class="btn btn-outline-secondary text-uppercase btn-pink">checkout</a>
           </div>
           <!--end of  cart buttons -->
@@ -85,10 +86,6 @@ https://www.iconfinder.com/korawan_m
         </div>
       </div>
     </div>
-
-
-
-
     <!--end of  banner  -->
   </header>
   <!-- header -->

@@ -22,6 +22,10 @@ const input = document.getElementById('search-item');
         btn.addEventListener('click',function(event){
             // console.log(event.target);
 
+            document.getElementById('cart-empty').style.display = "none";
+            document.querySelector('.cart-total-container').classList.add('d-flex');
+            document.querySelector('.cart-buttons-container').classList.add('d-flex');
+
             if(event.target.parentElement.classList.contains('store-item-icon')){
                 let fullPath = event.target.parentElement.previousElementSibling.src;
                 let pos = fullPath.indexOf('img')+3;
@@ -58,7 +62,7 @@ const input = document.getElementById('search-item');
                             <span>$</span>
                             <span id="cart-item-price" class="cart-item-price" class="mb-0">${item.price}</span>
                         </div>
-                        <a href="#" id='cart-item-remove' class="cart-item-remove">
+                        <a id='cart-item-remove' class="cart-item-remove">
                             <i class="fas fa-trash"></i>
                         </a>
                     </div>`;
@@ -96,6 +100,27 @@ const input = document.getElementById('search-item');
         document.getElementById('item-count').textContent = total.length; 
     }
 })();
+
+// delete an item from cart
+function deleteFromCart(){
+    // Code here
+}
+
+function clearCart() {
+    const cartItems = document.querySelectorAll('.cart-item');
+    document.querySelector('.cart-total-container').classList.remove('d-flex');
+    document.querySelector('.cart-buttons-container').classList.remove('d-flex');
+    document.getElementById('cart-total').textContent = "0";
+    document.querySelector('.item-total').textContent = "0"; 
+    document.getElementById('item-count').textContent = "0";
+    var i;
+    document.getElementById('cart-empty').style.display = "block";
+    for (i = 0; i < cartItems.length; i++) {
+        cartItems[i].innerHTML = '';
+        cartItems[i].classList.remove('d-flex')
+        cartItems[i].style.display = "none";
+    }
+}
 
 function search() {
     var i;
