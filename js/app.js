@@ -62,7 +62,7 @@ const input = document.getElementById('search-item');
                             <span>$</span>
                             <span id="cart-item-price" class="cart-item-price" class="mb-0">${item.price}</span>
                         </div>
-                        <a id='cart-item-remove' class="cart-item-remove">
+                        <a id='cart-item-remove' class="cart-item-remove" onclick="deleteFromCart(this)">
                             <i class="fas fa-trash"></i>
                         </a>
                     </div>`;
@@ -78,6 +78,9 @@ const input = document.getElementById('search-item');
             }
         });
     });
+
+
+})();
 
     // show totals
     function showTotals(){
@@ -95,16 +98,22 @@ const input = document.getElementById('search-item');
 
         const finalMoney = totalMoney.toFixed(2);
 
-        document.getElementById('cart-total').textContent = finalMoney;
-        document.querySelector('.item-total').textContent = finalMoney; 
-        document.getElementById('item-count').textContent = total.length; 
+        if(finalMoney>0) {
+            document.getElementById('cart-total').textContent = finalMoney;
+            document.querySelector('.item-total').textContent = finalMoney; 
+            document.getElementById('item-count').textContent = total.length; 
+        }
+        else {
+            clearCart();
+        }
     }
-})();
 
-// delete an item from cart
-function deleteFromCart(){
-    // Code here
+ // delete an item from cart
+ function deleteFromCart(item){
+    item.parentElement.remove();
+    showTotals();
 }
+
 
 function clearCart() {
     const cartItems = document.querySelectorAll('.cart-item');
